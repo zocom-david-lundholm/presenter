@@ -434,33 +434,34 @@
  }
  
  .reveal .backgrounds .complex {
-   background-image: url("../img/bg-o-br.svg"), url("../img/bg-dots-white.svg");
+   background-image: url("../img/bg-o-br-red.svg"), url("../img/bg-dots-white.svg");
    background-repeat: no-repeat, no-repeat;
    background-position: bottom right, 5rem 5rem;
+   background-color: rgba(0,0,0,0.25), rgba(0,0,0,0.25);
  }
  
  .reveal .backgrounds .code {
    background-color: #431261;
-   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-br.svg"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
    background-position: bottom right, bottom left;
-   background-size: 40%, auto;
+   background-size: 30%, auto;
  }
  
  .reveal .backgrounds .task {
    background-color: #FED253;
-   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-br.svg"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
-   background-position: 80% bottom, bottom left;
-   background-size: 32%, auto;
+   background-position: bottom right, bottom left;
+   background-size: 30%, auto;
  }
  
  .reveal .backgrounds .discussion {
    background-color: #4AB396;
-   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-br.svg"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
-   background-position: left bottom, bottom left;
-   background-size: 42%, 60% auto;
+   background-position: bottom right, bottom left;
+   background-size: 30%, auto;
  }
  
  /*********************************************
