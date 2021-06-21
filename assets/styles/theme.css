@@ -100,6 +100,7 @@
  .reveal p {
    margin: 1rem 0;
    line-height: 1.3;
+   display: flex;
  }
  
  /* Ensure certain elements are never larger than the slide itself */
@@ -317,7 +318,7 @@
  }
  
  .reveal img {
-   margin: 1rem 0;
+   margin: 1.5rem;
  }
  
  /*********************************************
