@@ -1,0 +1,17 @@
+{
+  "name": "@zocom/presenter",
+  "version": "0.1.0",
+  "description": "Reveal.js CLI wrapper for slides with ZoCom's theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Lundholm",
+  "license": "ISC",
+  "dependencies": {
+    "reveal-md": "^5.0.0"
+  },
+  "bin": {
+    "zocom-presenter": "./index.js"
+  }
+}
