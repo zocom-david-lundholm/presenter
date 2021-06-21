@@ -1,6 +1,6 @@
 {
   "name": "@zocom/presenter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reveal.js CLI wrapper for slides with ZoCom's theme",
   "main": "index.js",
   "scripts": {
