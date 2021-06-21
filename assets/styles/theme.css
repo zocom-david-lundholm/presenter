@@ -441,7 +441,7 @@
  
  .reveal .backgrounds .code {
    background-color: #431261;
-   background-image: url("../img/code.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
    background-position: bottom right, bottom left;
    background-size: 40%, auto;
@@ -449,7 +449,7 @@
  
  .reveal .backgrounds .task {
    background-color: #FED253;
-   background-image: url("../img/panic.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
    background-position: 80% bottom, bottom left;
    background-size: 32%, auto;
@@ -457,7 +457,7 @@
  
  .reveal .backgrounds .discussion {
    background-color: #4AB396;
-   background-image: url("../img/bears.png"), url("../img/bg-o-big-bl.svg");
+   background-image: url("../img/bg-o-big-bl.png"), url("../img/bg-o-big-bl.svg");
    background-repeat: no-repeat, no-repeat;
    background-position: left bottom, bottom left;
    background-size: 42%, 60% auto;
