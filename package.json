@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Lundholm",
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/zocom-david-lundholm/presenter/issues",
-    "email":"david.lundholm@zocom.se"
+    "email": "david.lundholm@zocom.se"
   },
   "homepage": "https://github.com/zocom-david-lundholm/presenter",
   "repository": {
@@ -18,9 +18,9 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "reveal-md": "^5.0.0"
+    "reveal-md": "^5.1.2"
   },
   "bin": {
-    "zocom-presenter": "./index.js"
+    "presenter": "./index.js"
   }
 }
