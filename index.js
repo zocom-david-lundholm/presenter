@@ -8,4 +8,4 @@ process.argv.push("--highlight-theme", "monokai" )
 process.argv.push("--theme",  path.join("node_modules", "@zocom", "presenter","assets","styles","theme.css"))
 
 console.log("-- Zocom Presenter --")
-require('./node_modules/reveal-md/bin/reveal-md.js')
+require('reveal-md/bin/reveal-md')
