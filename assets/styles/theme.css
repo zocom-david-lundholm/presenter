@@ -608,7 +608,11 @@
   /*********************************************
   * LAYOUT WIDGETS
   *********************************************/
-  .reveal .slides section.three-columns {
+  .reveal .two-columns{
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reveal .three-columns{
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
   }
