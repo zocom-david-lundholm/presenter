@@ -5,7 +5,7 @@ module.exports = (markdown, options) => {
       let inColumn = false
       return resolve(
         markdown
-          .split('\n')
+          .split('\n')          
           .map((line, index) => {
             const instructionLine = line.match( new RegExp(`^.*${COMMAND_CHARACTERS}([a-zA-Z-]*)$` ) )
             if (!instructionLine) return line;
@@ -20,7 +20,11 @@ module.exports = (markdown, options) => {
               return result
             }else if(instruction == "fragment"){
                 return line.replace("::fragment", "<!-- .element: class=\"fragment\" -->")
-            }else if(inColumn && line.startsWith("---")){
+            }else if(instruction.startsWith("transition-")){
+              console.log("????")
+              return `<!-- .slide: data-transition="${instruction.replace("transition-","")}"-->`
+            }
+            else if(inColumn && line.startsWith("---")){
               inColumn = false
               return '</div>\n' + line + '\n'
             }else{
