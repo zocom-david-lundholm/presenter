@@ -12,7 +12,9 @@ if(process.argv[2] === 'demo'){
 
 process.argv.push("--preprocessor",  path.join(__dirname,"preprocessor","commands.js") )
 process.argv.push("--highlight-theme", "monokai" )
-process.argv.push("--theme",  path.join(PRESENTER_PATH,"assets","styles","theme.css"))
+if(!args.includes("--theme")){
+  process.argv.push("--theme",  'https://zocom-utbildning.github.io/zocom-presenter-theme/zocom.css' )
+}
 
 console.log("-- Zocom Presenter --")
 require('reveal-md/bin/reveal-md')

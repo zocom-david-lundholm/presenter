@@ -1,36 +1,49 @@
 const COMMAND_CHARACTERS = "::"
+let inColumn = false
+let inFragmentedList = false
+
+const isInstructionLine = line => line.match( new RegExp(`^.*${COMMAND_CHARACTERS}([a-zA-Z-]*)$` ) )
+const isBulletListLine = line => line.trim().match(/^(\*|\d+\.|-).*/)
+
+const parseLine = line => {
+  if(inFragmentedList){
+    if(isBulletListLine(line) ){
+      return line +  "<!-- .element: class=\"fragment\" -->"
+    }else{
+      inFragmentedList = false
+    }
+  }
+  if(inColumn && line.startsWith("---")){
+    inColumn = false
+    return '</div>\n' + line + '\n'
+  }
+  if (!isInstructionLine(line)) return line;
+
+  const instruction = line.replace(COMMAND_CHARACTERS, "")
+  const [directive, variant] = instruction.split("-")
+  
+  switch(directive){
+    case 'bg':              
+    case 'layout':
+      return `<!-- .slide: class="${variant}"-->`
+    case 'transition':
+      return `<!-- .slide: data-transition="${variant}"-->`
+    case 'column':
+      const markup = inColumn ? "</div><div>\n" : '<div>\n'
+      inColumn = true
+      return markup
+    case 'fragmented':
+      inFragmentedList = true;
+      return ""
+  }
+}
 
 module.exports = (markdown, options) => {
-    return new Promise((resolve, reject) => {
-      let inColumn = false
+    return new Promise((resolve, reject) => {      
       return resolve(
         markdown
           .split('\n')          
-          .map((line, index) => {
-            const instructionLine = line.match( new RegExp(`^.*${COMMAND_CHARACTERS}([a-zA-Z-]*)$` ) )
-            if (!instructionLine) return line;
-            const instruction = instructionLine[1]
-            if(instruction.startsWith("bg-")){
-                return `<!-- .slide: class="${instruction.replace("bg-","")}"-->`
-            }else if(instruction.startsWith("layout-")){
-                return `<!-- .slide: class="${instruction.replace("layout-","")}"-->`
-            }else if(instruction == 'column'){
-              let result = inColumn ? "</div><div>\n" : '<div>\n'
-              inColumn = true
-              return result
-            }else if(instruction == "fragment"){
-                return line.replace("::fragment", "<!-- .element: class=\"fragment\" -->")
-            }else if(instruction.startsWith("transition-")){
-              console.log("????")
-              return `<!-- .slide: data-transition="${instruction.replace("transition-","")}"-->`
-            }
-            else if(inColumn && line.startsWith("---")){
-              inColumn = false
-              return '</div>\n' + line + '\n'
-            }else{
-                return line
-            }
-          })          
+          .map(parseLine)          
           .join('\n')
       );
     });
