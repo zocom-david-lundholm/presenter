@@ -2,7 +2,7 @@ const COMMAND_CHARACTERS = "::"
 let inColumn = false
 let inFragmentedList = false
 
-const isInstructionLine = line => line.match( new RegExp(`^.*${COMMAND_CHARACTERS}([a-zA-Z-]*)$` ) )
+const isInstructionLine = line => line.match( new RegExp(`^.*${COMMAND_CHARACTERS}.+$` ) )
 const isBulletListLine = line => line.trim().match(/^(\*|\d+\.|-).*/)
 
 const parseLine = line => {
@@ -20,12 +20,13 @@ const parseLine = line => {
   if (!isInstructionLine(line)) return line;
 
   const instruction = line.replace(COMMAND_CHARACTERS, "")
-  const [directive, variant] = instruction.split("-")
+  const [directive, variant, mode] = instruction.split("-")
   
   switch(directive){
     case 'bg':              
+      return `<!-- .slide: class="${variant} ${mode ? mode : ''}"-->`
     case 'layout':
-      return `<!-- .slide: class="${variant}"-->`
+      return `<!-- .slide: data-layout="${variant}-${mode}"-->`
     case 'transition':
       return `<!-- .slide: data-transition="${variant}"-->`
     case 'column':
@@ -35,6 +36,8 @@ const parseLine = line => {
     case 'fragmented':
       inFragmentedList = true;
       return ""
+    case 'image':
+      return `<!-- .slide: data-background-image="${variant}"-->`
   }
 }
 
