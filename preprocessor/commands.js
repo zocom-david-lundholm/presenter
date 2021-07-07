@@ -26,7 +26,9 @@ const parseLine = line => {
     case 'bg':              
       return `<!-- .slide: class="${variant} ${mode ? mode : ''}"-->`
     case 'layout':
-      return `<!-- .slide: data-layout="${variant}-${mode}"-->`
+      return mode ? 
+        `<!-- .slide: data-layout="${variant}-${mode}"-->` :
+        `<!-- .slide: data-layout="${variant}"-->`
     case 'transition':
       return `<!-- .slide: data-transition="${variant}"-->`
     case 'column':
